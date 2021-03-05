@@ -11,11 +11,14 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.onActive
 import androidx.compose.ui.Modifier
-import com.weesnerdevelopment.game.PerceptronTraining
+import com.weesnerdevelopment.game.BouncingBallGame
+import com.weesnerdevelopment.game.MoverGame
 
-@Composable
+ @Composable
 fun App() {
-    val game = PerceptronTraining()
+    //val game = PerceptronTraining()
+    //val game = BouncingBallGame()
+    val game = MoverGame()
 
     /**
      * Used to create an animator to cause recomposition on every frame.
