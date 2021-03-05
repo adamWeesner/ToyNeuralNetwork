@@ -6,11 +6,14 @@ import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.repeatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.onActive
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.gesture.tapGestureFilter
+import androidx.compose.ui.input.pointer.pointerInput
 import com.weesnerdevelopment.game.BouncingBallGame
 import com.weesnerdevelopment.game.MoverGame
 
@@ -35,7 +38,9 @@ fun App() {
     }
 
     MaterialTheme {
-        Canvas(modifier = Modifier.fillMaxSize()) {
+        Canvas(modifier = Modifier.fillMaxSize().tapGestureFilter {
+            game.onTouch(it.x, it.y)
+        }) {
             // this triggers recomposition since it changed
             animatedProgress.value
 

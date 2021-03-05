@@ -40,6 +40,11 @@ class Vector(
         val magnitude = magnitude()
         return if (magnitude != 0f) div(magnitude) else this
     }
+
+    fun limit(max: Float) {
+        if(x > max) x = max
+        if(y > max) y = max
+    }
 }
 
 fun Float.inBounds(lowerBound: Float, upperBound: Float) =
